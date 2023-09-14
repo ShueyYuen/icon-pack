@@ -1,0 +1,55 @@
+version: '3'
+services:
+  web:
+    build:
+      dockerfile: ./site/docker/Dockerfile.dev
+      context: ../.
+    user: "${UID}:${GID}"
+    ports:
+      - 3000:3000
+      - 5500:8080
+      - 24678:24678
+    depends_on:
+      - redis
+      - mongodb
+      # - verdaccio
+    volumes:
+      - ../.:/app
+      - nuxt-config:/app/site/.nuxt
+      - root-modules:/app/node_modules
+      - plugin-modules:/app/plugin/node_modules
+      - site-modules:/app/site/node_modules
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+      - ./db/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+      MONGO_INITDB_DATABASE: icons
+      MONGO_INITDB_USERNAME: icon
+      MONGO_INITDB_PASSWORD: 123456
+  # verdaccio:
+  #   image: verdaccio/verdaccio:4
+  #   restart: always
+  #   ports:
+  #     - 4873:4873
+  #   volumes:
+  #     - verdaccio-storage:/verdaccio/conf
+volumes:
+  root-modules:
+  nuxt-config:
+  icon-modules:
+  plugin-modules:
+  site-modules:
+  mongodb-data:
+  redis-data:
+  # verdaccio-storage:

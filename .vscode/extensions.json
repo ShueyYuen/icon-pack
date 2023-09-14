@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Gruntfuggly.todo-tree",
+    "mikestead.dotenv",
+    "EditorConfig.EditorConfig",
+    "ms-vscode.vscode-typescript",
+    "Vue.vscode-typescript-vue-plugin",
+    "Vue.volar"
+  ]
+}

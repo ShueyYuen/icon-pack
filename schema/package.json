@@ -1,0 +1,20 @@
+{
+  "name": "@icon/schema",
+  "private": true,
+  "type": "module",
+  "module": "./index.ts",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "require": "./index.ts",
+      "import": "./index.ts"
+    }
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "mongoose": "7.4.1",
+    "mongoose-bcrypt": "^1.10.1"
+  }
+}

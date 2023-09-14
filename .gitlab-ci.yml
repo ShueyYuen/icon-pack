@@ -1,0 +1,47 @@
+stages:
+  - prepare
+  - lint
+  # - test
+  - build
+  - docs
+
+default:
+  image: node:lts-alpine
+  # cache node_modules!
+  cache: &cache
+    key:
+      files:
+        - package.json
+    paths:
+      - .pnpm-store
+      - ./node_modules
+    policy: pull
+  before_script:
+    - npm i -g pnpm
+    - pnpm config set store-dir .pnpm-store
+    - pnpm install --silent
+
+
+install:
+  stage: prepare
+  cache:
+    <<: *cache
+    policy: push
+  script:
+    - pnpm install --reporter append-only
+
+lint:
+  stage: lint
+  needs:
+    - job: install
+      artifacts: false
+  script:
+    - pnpm lint
+
+build:
+  stage: build
+  needs:
+    - job: install
+      artifacts: false
+  script:
+    - pnpm build

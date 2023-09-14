@@ -1,0 +1,33 @@
+FROM node:18-alpine as builder
+ARG PNPM_VERSION=8.1.1
+RUN npm --global install pnpm@${PNPM_VERSION}
+
+WORKDIR /app
+
+COPY .npmrc package.json ./
+RUN pnpm install --frozen
+
+COPY . .
+
+# build the project
+RUN pnpm build
+
+# start final image
+FROM node:18-alpine
+ARG PNPM_VERSION=8.1.1
+RUN npm --global install pnpm@${PNPM_VERSION}
+
+WORKDIR /app
+
+COPY .npmrc package.json ./
+RUN pnpm install --prod
+
+# copy over build files from builder step
+COPY --from=builder /app  /app
+
+# expose the host and port 3000 to the server
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
+# run the build project with node
+ENTRYPOINT ["node", "./dist/index.js"]

@@ -1,0 +1,26 @@
+{
+  "name": "@icon/consumer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --project ./tsconfig.json",
+    "consume": "node --experimental-specifier-resolution=node ./dist/index.js",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.2",
+    "typescript": "latest",
+    "ts-node": "10.9.1",
+    "nodemon": "3.0.1"
+  },
+  "dependencies": {
+    "@icon/schema": "workspace:*",
+    "dotenv": "16.3.1",
+    "execa": "7.1.1",
+    "fs-extra": "11.1.1",
+    "ioredis": "5.3.2",
+    "lodash-unified": "1.0.3",
+    "mongoose": "7.4.1",
+    "uuid": "9.0.0"
+  }
+}

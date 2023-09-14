@@ -1,0 +1,3 @@
+dist/
+*.less.d.ts
+*.css.d.ts

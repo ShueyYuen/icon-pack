@@ -1,0 +1,46 @@
+// 定义栅格变量
+@grid-columns: 12;
+@grid-gutter-width: 30px;
+
+@grid-breakpoints: {
+  xs: 0;
+  sm: 576px;
+  md: 768px;
+  lg: 992px;
+  xl: 1200px;
+  xxl: 1400px;
+};
+
+.make-grid-columns() {
+  .loop-grid-columns(@index) when (@index > 0) {
+    .col-@{index} {
+      width: (@index / @grid-columns) * 100%;
+    }
+    .loop-grid-columns(@index - 1);
+  }
+  .loop-grid-columns(@grid-columns);
+}
+// 创建栅格类
+.make-grid-columns();
+each(@grid-breakpoints, {
+  @media (min-width: @value) {
+    .make-grid-columns() {
+      .loop-grid-columns(@index) when (@index > 0) {
+        .col-@{key}-@{index} {
+          flex: 0 0 auto;
+          width: (@index / @grid-columns) * 100%;
+        }
+
+        .loop-grid-columns(@index - 1);
+      }
+      .loop-grid-columns(@grid-columns);
+    }
+    .make-grid-columns();
+  }
+});
+
+.row {
+  display: flex;
+  flex-direction: row;
+  column-gap: @grid-gutter-width;
+}

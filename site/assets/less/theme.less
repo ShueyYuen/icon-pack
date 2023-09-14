@@ -1,0 +1,69 @@
+.theme-light() {
+  --theme-shadow: rgba(0, 0, 0, 0.16);
+
+  --theme-bg-primary: #f5f8fa;
+  --theme-bg-high: #ffffff;
+  --theme-bg-shadow: #dddfe1;
+  --theme-bg-active1: #dddfe1;
+  --theme-bg-active2: #ffffff;
+
+  --theme-text-active: #2ecc71;
+  --theme-text-light: #ffffff;
+  --theme-text-primary: #3e3e5f;
+  --theme-text-low: #aeacb1;
+  --theme-text-stress: #14281D;
+
+  --theme-border-primary: #e1e4e8;
+  --theme-border-secondary: #ebedef;
+}
+
+.theme-dark() {
+  --theme-shadow: rgba(255, 255, 255, 0.16);
+
+  --theme-bg-primary: #1e2428;
+  --theme-bg-high: #3e4b53;
+  --theme-bg-shadow: #0c0e10;
+  --theme-bg-active1: #1b2024;
+  --theme-bg-active2: #20272b;
+
+  --theme-text-active: #3dad6c;
+  --theme-text-light: #d7dfe6;
+  --theme-text-primary: #adbac7;
+  --theme-text-low: #444c56;
+  --theme-text-stress: #cdd9e5;
+
+  --theme-border-primary: #444c56;
+  --theme-border-secondary: #373e47;
+}
+
+:root.light {
+  .theme-light();
+}
+
+:root.dark {
+  .theme-dark();
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    .theme-light();
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    .theme-dark();
+  }
+}
+
+// 尺寸相关样式
+
+:root {
+  --radius: 8px;
+  --soft-shadow: 3px;
+
+  --theme-warning: #ffc107;
+  --theme-error: #dc3545;
+  --theme-success: #28a745;
+  --theme-info: #17a2b8;
+}

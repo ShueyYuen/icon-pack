@@ -1,0 +1,119 @@
+{
+  // vscode 配置
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "files.insertFinalNewline": true,
+  "typescript.validate.enable": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "npm.packageManager": "pnpm",
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  // eslint 配置
+  "eslint.format.enable": true,
+  // cSpell
+  "cSpell.words": [
+    "appname",
+    "Arrayable",
+    "camelcase",
+    "commitlint",
+    "composables",
+    "consola",
+    "endregion",
+    "execa",
+    "freepen",
+    "ibeam",
+    "iconfont",
+    "iife",
+    "lifecircle",
+    "nesw",
+    "nuxt",
+    "nuxtjs",
+    "outdir",
+    "pinia",
+    "preinstall",
+    "proto",
+    "protobuf",
+    "Rois",
+    "sensecare",
+    "senseicon",
+    "SENSESARE",
+    "sensetime",
+    "tailwindcss",
+    "topbar",
+    "unref",
+    "vnode",
+    "Vois",
+    "vueuse",
+    "xack",
+    "xadd",
+    "xdel",
+    "xreadgroup"
+  ],
+  // todo tree
+  "todo-tree.general.tags": ["BUG", "HACK", "FIXME", "TODO", "XXX"],
+  "todo-tree.highlights.customHighlight": {
+    "FIX": {
+      "background": "red"
+    },
+    "TODO": {
+      "background": "orange"
+    },
+    "BUG": {
+      "icon": "bug"
+    },
+    "FIXME": {
+      "icon": "flame"
+    }
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".editorconfig": ".gitattributes, .gitignore, .gitlab-ci.yml, .eslintcache, .eslintrc.json, prettier.config.js, lint-staged.config.js, jest.config.js",
+    "package.json": "pnpm-lock.yaml, .npmrc, .npmignore, pnpm-workspace.yaml",
+    "tsconfig.json": "tsconfig.*.json, typedoc.json"
+  },
+  "files.exclude": {
+    ".pnpm-store": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules": true,
+    ".pnpm-store": true,
+    "site/.output": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

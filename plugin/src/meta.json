@@ -1,0 +1,6 @@
+{
+  "@include": "https://www.iconfont.cn/manage/index*",
+  "@run-at": "document-start",
+  "@require": "https://code.jquery.com/jquery-3.6.0.min.js",
+  "@description": "This is a script that will be injected into iconfont.cn. It will add a iframe to the page to link icon-pack."
+}
