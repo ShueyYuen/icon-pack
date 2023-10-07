@@ -19,7 +19,7 @@
     "@typescript-eslint/parser": "^5.1.0",
     "autoprefixer": "^10.3.7",
     "core-js": "3.18.3",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.31",
     "rollup": "^2.58.0",
     "rollup-plugin-dotenv": "^0.5.0",
     "rollup-plugin-postcss": "^4.0.1",
