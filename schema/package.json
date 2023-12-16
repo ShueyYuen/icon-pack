@@ -14,7 +14,7 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "mongoose": "7.4.1",
+    "mongoose": "7.3.3",
     "mongoose-bcrypt": "^1.10.1"
   }
 }

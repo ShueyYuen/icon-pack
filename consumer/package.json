@@ -20,7 +20,7 @@
     "fs-extra": "11.1.1",
     "ioredis": "5.3.2",
     "lodash-unified": "1.0.3",
-    "mongoose": "7.4.1",
+    "mongoose": "7.3.3",
     "uuid": "9.0.0"
   }
 }
