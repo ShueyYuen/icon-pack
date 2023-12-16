@@ -18,6 +18,7 @@ export interface IVersion {
   build: string[];
   step: TaskStatus;
   logs: string;
+  group: string;
   project: Omit<IProject, 'id'>;
   icons: IIcon[];
 }
@@ -39,6 +40,7 @@ const VersionedSchema = new Schema<IVersion>({
   },
   // 项目管理员升级版本时填写的日志
   logs: String,
+  group: String,
   project: {
     type: ProjectSchema,
     required: true,

@@ -20,6 +20,7 @@ const { pending, data: response } = useLazyFetch(`/api/v1/project/${project.id}/
     data: {
       icons: Array<IIcon>;
       config: Pick<IProject, 'family' | 'prefix'>;
+      group: string;
     };
   }>;
 };
@@ -49,11 +50,13 @@ const isGlobal = ref(false);
             v-if="isGlobal"
             :demo="response.data.icons[0]"
             :config="response.data.config"
+            :group="response.data.group"
           ></CodeGlobal>
           <CodeSingle
             v-else
             :demo="response.data.icons[0]"
             :config="response.data.config"
+            :group="response.data.group"
           ></CodeSingle>
         </template>
       </IconDisplay>

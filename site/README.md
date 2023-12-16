@@ -1,2 +1,2 @@
-# icon generate site
+# icon pack site
 

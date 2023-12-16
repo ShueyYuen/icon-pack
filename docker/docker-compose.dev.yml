@@ -19,6 +19,8 @@ services:
       - root-modules:/app/node_modules
       - plugin-modules:/app/plugin/node_modules
       - site-modules:/app/site/node_modules
+      - schema-modules:/app/schema/node_modules
+      - utils-modules:/app/utils/node_modules
   redis:
     image: redis
     ports:
@@ -50,6 +52,8 @@ volumes:
   icon-modules:
   plugin-modules:
   site-modules:
+  schema-modules:
+  utils-modules:
   mongodb-data:
   redis-data:
   # verdaccio-storage:

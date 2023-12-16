@@ -28,7 +28,7 @@ const handleLogin = async () => {
   <NuxtLayout name="copyleft">
     <form class="soft--form soft--box login">
       <div class="title">
-        <h1>😃 Icon Generate 😪</h1>
+        <h1>😃 Icon Pack 😪</h1>
       </div>
       <div class="form-item">
         <label for="username">用户名</label>

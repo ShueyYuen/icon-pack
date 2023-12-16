@@ -31,7 +31,7 @@ const buildBundle = () => {
       format,
       minifySyntax: true,
       banner: {
-        js: `/*! Icon Generate Vue v${version} */\n`,
+        js: `/*! Icon Pack Vue v${version} */\n`,
       },
       outdir: pathOutput,
     };

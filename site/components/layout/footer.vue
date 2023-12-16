@@ -39,7 +39,7 @@ const handleThemeClick = (e) => {
 </template>
 
 <style lang="less">
-.footer {
+.soft--box.footer {
   padding: 10px;
   text-align: center;
   box-sizing: border-box;

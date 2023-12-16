@@ -23,6 +23,7 @@ export default defineEventHandler(async (event) => {
   versioned.icons = await Icon.find({
     project: params!.pid,
   });
+  versioned.group = process.env.PACKAGE_GROUP || '@icon-park';
   await versioned.save();
   await versioned.updateOne({ step: TaskStatus.INLINE });
   await pushTask(versioned);

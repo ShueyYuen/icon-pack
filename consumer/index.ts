@@ -59,7 +59,6 @@ async function initMongoConnect() {
     }
     mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.NUXT_MONGO_URL);
-    console.log(process.env.NUXT_MONGO_URL);
   } catch (error) {
     throw new Error("Something went wrong.");
   }

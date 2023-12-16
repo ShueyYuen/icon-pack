@@ -1,67 +1,77 @@
 # icon-pack
 
-***purpose***: 通过iconfont生成icon包，并进行版本管理。
+***purpose***: Generate an icon pack using iconfont and manage versions.
 
-- [X] 插件功能（iconfont）
-  - [X] 现有图标迁移
-  - [X] 增量合并
-- [X] 组件库构建
-  - [X] 组件库模板项目
-  - [X] 队列消费和保障
-  - [x] 构建日志
-- [X] 版本管理
-  - [X] 发包
-  - [X] change log
-- [X] 已发布包预览
-- [X] 用户信息管理
-- [X] 用户权限管理
-- [X] 行为日志
-  - [X] 新增，删除
-  - [X] 更新
-  - [X] 迁移
-- [X] 动画图标支持
+### Screenshot
+
+![example icons](./docs/img/icons.webp)
+
+![package preview](./docs/img/package-preview.webp)
+
+For detail usage: [docs](./docs/usage.md)
+
+### Roadmap
+
+- [X] Plugin Functionality (iconfont)
+  - [X] Migration of existing icons
+  - [X] Incremental merging
+- [X] Component Library Build
+  - [X] Component library template project
+  - [X] Queue consumption and protection
+  - [x] Building logs
+- [X] Version Management
+  - [X] Package deployment
+  - [X] Change log
+- [X] Preview of released packages
+- [X] User information management
+- [X] User permission management
+- [X] Activity logs
+  - [X] Additions, deletions
+  - [X] Updates
+  - [X] Migrations
+- [X] Animation icon support
 
 ## consumer
 
-负责消费队列，并通过template生成icon构建项目，调用template进行构建，并记录日志。
+Responsible for consuming the queue, generating an icon build project using templates, invoking the template for building, and logging the process.
 
 ## plugin
 
-负责第三方网站的迁移插件。
+Responsible for the migration plugin for third-party websites.
 
 ## schema
 
-mongodb的数据结构，被site、consumer引用。
+Data structure for MongoDB, referenced by `site` and `consumer`.
 
 ## site
 
-负责插件和管理平台的接口、网页。
+Responsible for the interface and web pages of the plugin and management platform.
 
 ## template
 
-根据consumer设置的环境变量，负责生成icon对应的包发布文件，并发布。
+Based on the environment variables set by the consumer, responsible for generating package release files for icons and publishing them.
 
 ## utils
 
-svg的公共处理方法。
+Shared methods for processing SVG images.
 
-> utils代码需要再浏览器环境、node环境都兼容。
+> Utils code needs to be compatible with both browser and Node.js environments.
 
 # 使用
 
 ```sh
-# 启动开发服务
+# start development services
 docker compose -f ./docker/docker-compose.dev.yml up
 ```
 
 ```sh
-# 部署生成环境
+# start production services
 docker compose -f ./docker/docker-compose.prod.yml up
 ```
 
-> 第一次启动需要构建镜像，时间较长，请耐心等待。
+> Building the images for the first time takes a long time, please be patient.
 
-### 项目打包结构
+### Project Structure
 
 ```mermaid
 sequenceDiagram
@@ -69,7 +79,7 @@ sequenceDiagram
     participant site
     participant mongodb
     participant redis
-    box Gray Alice & John
+    box Gray build
       participant consumer
       participant template
     end

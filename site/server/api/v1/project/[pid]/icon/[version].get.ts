@@ -25,6 +25,7 @@ export default defineEventHandler(async ({ context }) => {
       data: {
         icons: pickIcons(result[0].icons),
         config: pick(result[0].project, ['family', 'prefix']),
+        group: result[0].group || '@icon-pack',
       },
     };
   }

@@ -4,7 +4,8 @@ import { IIcon, IProject } from '@icon/schema';
 
 const props = defineProps<{
   demo?: IIcon;
-  config: Pick<IProject, 'prefix' | 'family'>
+  config: Pick<IProject, 'prefix' | 'family'>;
+  group: string;
 }>();
 
 const name = computed(() =>
@@ -27,7 +28,7 @@ const name = computed(() =>
         <li>2</li>
       </ol>
       <pre class="code" data-code="javascript">
-<code><span class="key">import</span> <span class="object">GlobalIcons</span> <span class="key">from</span> <span class="string">'@senseicon/icon/global'</span>;</code>
+<code><span class="key">import</span> <span class="object">GlobalIcons</span> <span class="key">from</span> <span class="string">'{{ group }}/{{ config.family }}/global'</span>;</code>
 <code><span class="identify">const</span> <span class="object">app</span> = <span class="function">createApp</span><span class="bracket">(</span><span class="object">App</span><span class="bracket">)</span>.<span class="function">use</span><span class="bracket">(</span><span class="object">GlobalIcons</span><span class="bracket">)</span>;</code>
 </pre>
     </div>

@@ -4,14 +4,13 @@ import { IIcon, IProject } from '@icon/schema';
 
 const props = defineProps<{
   demo?: IIcon;
-  config: Pick<IProject, 'prefix' | 'family'>
+  config: Pick<IProject, 'prefix' | 'family'>;
+  group: string;
 }>();
 
 const name = computed(() =>
   upperFirst(
-    camelCase(
-      `${props.config.family}-${props.demo?.class}`.replace('--', '-').replace(/^-/, '')
-    )
+    camelCase(`${props.config.family}-${props.demo?.class}`.replace('--', '-').replace(/^-/, ''))
   )
 );
 </script>
@@ -29,9 +28,9 @@ const name = computed(() =>
         <li>6</li>
         <li>7</li>
       </ol>
-<pre class="code" data-code="javascript">
+      <pre class="code" data-code="javascript">
 <code>&lt;<span class="identify">script</span> <span class="object">setup</span> <span class="object">lang</span>=<span class="string">"ts"</span>&gt;
-<span class="key">import</span> <span class="bracket">{</span> <span class="object">{{name}}</span> <span class="bracket">}</span> <span class="key">from</span> <span class="string">'@senseicon/icon'</span>;
+<span class="key">import</span> <span class="bracket">{</span> <span class="object">{{name}}</span> <span class="bracket">}</span> <span class="key">from</span> <span class="string">'{{ group }}/{{ config.family }}'</span>;
 &lt;/<span class="identify">script</span>&gt;
 
 &lt;<span class="identify">template</span>&gt;

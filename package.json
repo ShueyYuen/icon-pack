@@ -10,7 +10,6 @@
     "site:generate": "pnpm run -C site generate",
     "site:preview": "pnpm run -C site preview",
     "site:postinstall": "pnpm run -C site prepare",
-    "site:icon": "pnpm run -C site gen:icon",
     "icon:build": "pnpm run -C icon build",
     "plugin:dev": "pnpm run -C plugin dev",
     "plugin:build": "pnpm run -C plugin build"
