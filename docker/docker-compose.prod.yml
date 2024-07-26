@@ -3,14 +3,24 @@ services:
   web:
     build:
       dockerfile: ./site/docker/Dockerfile.prod
-      context: ../../.
+      context: ../.
     ports:
       - "3000:3000"
     depends_on:
       - redis
       - mongodb
+    volumes:
+      - ../.:/app
+      - nuxt-config:/app/site/.nuxt
+      - root-modules:/app/node_modules
+      - plugin-modules:/app/plugin/node_modules
+      - site-modules:/app/site/node_modules
+      - schema-modules:/app/schema/node_modules
+      - utils-modules:/app/utils/node_modules
   redis:
     image: redis
+    ports:
+      - 6379:6379
   mongodb:
     image: mongo
     restart: always
@@ -26,5 +36,12 @@ services:
       MONGO_INITDB_USERNAME: icon
       MONGO_INITDB_PASSWORD: 123456
 volumes:
+  root-modules:
+  nuxt-config:
+  icon-modules:
+  plugin-modules:
+  site-modules:
+  schema-modules:
+  utils-modules:
   mongodb-data:
   redis-data:

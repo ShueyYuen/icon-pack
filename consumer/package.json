@@ -4,14 +4,14 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project ./tsconfig.json",
-    "consume": "node --experimental-specifier-resolution=node ./dist/index.js",
+    "consume": "node --loader ts-node/esm ./index.ts",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts"
   },
   "devDependencies": {
     "@types/uuid": "^9.0.2",
     "typescript": "latest",
-    "ts-node": "10.9.1",
-    "nodemon": "3.0.1"
+    "ts-node": "10.9.2",
+    "nodemon": "3.1.4"
   },
   "dependencies": {
     "@icon/schema": "workspace:*",

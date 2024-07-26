@@ -1,5 +1,5 @@
-FROM node:18-alpine as builder
-ARG PNPM_VERSION=8.1.1
+FROM node:18-alpine AS builder
+ARG PNPM_VERSION=9.5.0
 
 RUN npm --global install pnpm@${PNPM_VERSION}
 RUN npm install http-server -g
@@ -8,17 +8,20 @@ RUN apk add --no-cache git
 WORKDIR /app
 
 COPY .npmrc .npmignore package.json pnpm-workspace.yaml pnpm-lock.yaml ./
-COPY ./site/package.json ./site/package.json
+COPY ./consumer/package.json ./consumer/package.json
 COPY ./plugin/package.json ./plugin/package.json
-COPY ./icon/package.json ./icon/package.json
+COPY ./schema/package.json ./schema/package.json
+COPY ./site/package.json ./site/package.json
+COPY ./template/package.json ./template/package.json
+COPY ./utils/package.json ./utils/package.json
 
 COPY . .
 
 # expose the host and port 3000 to the server
-ENV HOST 0.0.0.0
+ENV HOST=0.0.0.0
 EXPOSE 3000
 EXPOSE 8080
 EXPOSE 24678
 
 # run the build project with node
-ENTRYPOINT ["sh", "/app/site/docker/script/entrypoint.sh"]
+ENTRYPOINT ["sh", "/app/site/docker/script/entrypoint.dev.sh"]
